@@ -1,5 +1,5 @@
 /**
- * REST kontroller - RL hivasok kezelesere
+ * REST kontroller - URL hivasok kezelesere
  */
 package controller;
 

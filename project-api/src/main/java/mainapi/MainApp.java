@@ -1,3 +1,7 @@
+/**
+ * Elerheto lekeresek loclahos-on: /hello, /topic
+ * TODO topic-ot adatbazissa alakitani --> fuggosegek kialakitasa
+ */
 package mainapi;
 
 import org.springframework.boot.SpringApplication;
@@ -5,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("controller") //ez kell, hogy lassa a controller taskat
+@ComponentScan("controller") //ez kell, hogy lassa a controller es/egyeb taskat(kat)
 public class MainApp {
 
 	/**
