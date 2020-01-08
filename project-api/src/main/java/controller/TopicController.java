@@ -1,5 +1,5 @@
 /**
- * REST kontroller - URL hivasok kezelesere
+ * REST Topic controller - for handling URL request
  */
 package controller;
 
@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import objects.TopicObject;
@@ -19,8 +21,8 @@ public class TopicController {
 	private TopicService topicService;
 	
 	/**
-	 * Lista tomb objektumokkal --> JSon alatikva (kesobb formazhato)
-	 * @return TopicService elemekbol allo tomb
+	 * List of Array of Objects --> made in to JSon
+	 * @return TopicService ArrayList
 	 */
 	@RequestMapping("/topic")
 	public List<TopicObject> topicController(){
@@ -28,14 +30,39 @@ public class TopicController {
 	}
 	
 	/**
-	 * TopicObject parameterezett lekerdezese, parameter: ID
-	 * @param id - id valtozo, amit a PathVariable atad a String id-be <--request mappingbol
-	 * @return visszatero erteke az ID alapjan megtalalt es egyezo elso objektum
-	 * 													(ld. TopicService)
-	 * Nevkonvencio: id - id (valtoztatas eseten a PathVariable("...nev...")-ra valtoztatni)
+	 * TopicObject request, parameter: ID
+	 * @param id - id, the PathVariable gives it as a String to id <--request mapping
+	 * @return the first ID of the Object
+	 * 	(see also: TopicService)
 	 */
 	@RequestMapping("/topic/{id}")
 	public TopicObject getTopic(@PathVariable String id) {
 		return topicService.getTopic(id);
+	}
+
+	/**
+	 * Topic adding with @RequestMapping configuration - POST
+	 * @RequestBody - gives back one object of TopicObject
+	 */
+	@RequestMapping(method = RequestMethod.POST, value = "/topic")
+	public void addTopic(@RequestBody TopicObject topic) {
+		topicService.addTopic(topic);
+	}
+	
+	/**
+	 * Topic refreshing (ID as key) with @RequestMapping configuration - PUT
+	 * @RequestBody - gives back one object of TopicObject 
+	 */
+	@RequestMapping(method = RequestMethod.PUT, value = "/topic/{id}")
+	public void updateTopic(@RequestBody TopicObject topic, @PathVariable String id) {
+		topicService.updateTopic(id, topic);
+	}
+	
+	/**
+	 * Topic deleting (ID as key) with @RequestMapping configuration - DELETE
+	 */
+	@RequestMapping(method = RequestMethod.DELETE, value = "/topic/{id}")
+	public void deleteTopic(@PathVariable String id) {
+		topicService.deleteTopic(id);
 	}
 }

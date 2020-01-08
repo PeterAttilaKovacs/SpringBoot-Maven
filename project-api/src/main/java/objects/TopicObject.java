@@ -1,22 +1,31 @@
+/**
+ * Entity class as TopicObject
+ */
 package objects;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class TopicObject {
 
-	//valtozok definalasa
+	//variables definition - text columns
+	@Id
 	private String ID;
+	
 	private String name;
 	private String description;
 	
 	/**
-	 * TopicObject alap konstruktora
+	 * TopicObject base constructor
 	 */
 	public TopicObject(){}
 	
 	/**
-	 * TopicObject parameterezett konstruktora
-	 * @param id - topic hivatkozasa egyedi azonositoval
-	 * @param name - topic neve
-	 * @param description - topic leirasa
+	 * TopicObject parameter constructor
+	 * @param id - topic unique key
+	 * @param name - topic name
+	 * @param description - topic description
 	 */
 	public TopicObject(String id, String name, String description) {
 		super();
@@ -24,7 +33,7 @@ public class TopicObject {
 		this.name = name;
 		this.description = description;
 	}
-	//ID gettere es settere
+	//ID getters and setters
 	public String getID() {
 		return ID;
 	}
@@ -32,7 +41,7 @@ public class TopicObject {
 		ID = iD;
 	}
 	
-	//name gettere es settere
+	//Name getters and setters
 	public String getName() {
 		return name;
 	}
@@ -40,7 +49,7 @@ public class TopicObject {
 		this.name = name;
 	}
 	
-	//description gettere es settere
+	//Description getters and setters
 	public String getDescription() {
 		return description;
 	}

@@ -1,5 +1,5 @@
 /**
- * REST kontroller - URL hivasok kezelesere
+ * REST controller - for URL request - for test only
  */
 package controller;
 
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TesztController {
 
-	//TESZT
+	//test
 	/**
-	 * Eljarashivas lokalhostra "/teszt" parameterrel <-- alapesetben GET metodus
-	 * @return meghivott eljaras mukodik
+	 * Request call on localhost "/ctest" param <-- GET method
+	 * @return request is returning "Controller works."
 	 */
-	@RequestMapping("/hello")
+	@RequestMapping("/ctest")
 	public String controllerTest() {
-		return "Controller works...";
+		return "Controller works.";
 	}
 }
