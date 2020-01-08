@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class TopicObject {
 
 	//variables definition - text columns
-	@Id
+	@Id //Primary key
 	private String ID;
 	
 	private String name;

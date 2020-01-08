@@ -55,7 +55,7 @@ public class TopicService {
 		topicRepository.save(topic);
 	}
 	
-	//Refreshing Topics to "topics" array
+	//Refreshing Topics to "topics" database
 	public void updateTopic(String id, TopicObject topic) {
 		
 		//Searching the array for element object - ID as key
@@ -72,7 +72,7 @@ public class TopicService {
 		topicRepository.save(topic);
 	}
 	
-	//Deleting Topic from "topics" array - ID as key
+	//Deleting Topic from "topics" database - ID as key
 	public void deleteTopic(String id) {
 		//topics.removeIf(t -> t.getID().equals(id));
 		topicRepository.delete(id);

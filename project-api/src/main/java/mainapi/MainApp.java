@@ -1,9 +1,11 @@
 /**
- * Available topics on localhost: /topic /ctest - for testing
+ * Available topics on localhost: /topic topic/id/subtopics /ctest - for testing
  * 
  * Embedded Apache Derby DataBase - runs in memory in runtime
  * 
- * TODO
+ * Using outer-controller for GET-POST-PUT-DELTE: FireFox RESTer 
+ * 
+ * TODO outer DB connection
  */
 package mainapi;
 
@@ -14,9 +16,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("interfaces") //need to scan where JPA will be called
-@EntityScan("objects") //need to scan where @Entity annotation is!
-@ComponentScan("controller") //this is what it needs to see other packages
+@EnableJpaRepositories({"interfaces", "subtopics"}) //need to scan where JPA will be called
+//@EnableJpaRepositories("interfaces") //need to scan where JPA will be called
+@EntityScan({"objects", "subtopics"}) //need to scan where @Entity annotation is!
+//@EntityScan("objects") //need to scan where @Entity annotation is!
+@ComponentScan({"controller", "subtopics"}) //this is what it needs to see other packages
 public class MainApp {
 
 	/**

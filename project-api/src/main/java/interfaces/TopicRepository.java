@@ -1,3 +1,6 @@
+/**
+ * TopicRepository interface using CrudRepository
+ */
 package interfaces;
 
 import org.springframework.data.repository.CrudRepository;
