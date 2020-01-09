@@ -1,5 +1,6 @@
 /**
- * Singleton Design Pattern
+ * (Singleton Design Pattern)
+ * TopicService
  */
 package controller;
 

@@ -15,7 +15,7 @@ public class SubService {
 	@Autowired
 	private SubRepository subRepository;
 
-	//Getter for (ArrayList) all subtopics from database
+	//Getter for all subtopics from database into an ArrayList
 	public List<SubObject> getAllSubTopics(String topicId) {
 		List<SubObject> subtopics = new ArrayList<>(); //creating an empty ArrayList
 		subRepository.findByTopicID(topicId).forEach(subtopics::add); //adding elements to the array

@@ -1,7 +1,10 @@
 /**
- * Available topics on localhost: /topic topic/id/subtopics /ctest - for testing
+ * Available topics on localhost: /topic, topic/id/subtopics, /hello - for testing
+ * (memo: for war deployment in pom.xml change: <packaging>jar</packaging> to <packaging>war</packaging>)
  * 
  * Embedded Apache Derby DataBase - runs in memory in runtime
+ * 
+ * Actuator methods available on port: 9001
  * 
  * Using outer-controller for GET-POST-PUT-DELTE: FireFox RESTer 
  * 
@@ -25,7 +28,7 @@ public class MainApp {
 
 	/**
 	 * Main Application
-	 * @param args
+	 * @param args none
 	 */
 	public static void main(String[] args) {
 		
