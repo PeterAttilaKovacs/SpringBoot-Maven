@@ -46,8 +46,11 @@ public class SubController {
 	 * @PathVariable - gives back the parent topicId
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/topic/{topicId}/subtopics")
-	public void addSubTopic(@RequestBody SubObject subtopic, @PathVariable String topicId) {
-		subtopic.setTopic(new TopicObject(topicId, "", "")); //see SubObject Topic setter
+	public void addSubTopic(@RequestBody SubObject subtopic, 
+			@PathVariable String topicId, String name, String description) {
+		//subtopic.setTopic(new TopicObject(topicId, "", "")); //see SubObject Topic setter
+		//subtopic.setTopic(TopicObject(topicId, name, description));
+		subtopic.setTopic(new TopicObject(topicId, name, description));
 		subService.addSubTopic(subtopic);
 	}
 	

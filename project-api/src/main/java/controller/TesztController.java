@@ -3,6 +3,7 @@
  */
 package controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,17 +18,17 @@ public class TesztController {
 	 * @return request is returning "Controller works."
 	 * @GetMapping - GET method
 	 */
-	@GetMapping("/hello") //@RequestMapping("/hello")
+	@GetMapping
 	public String controllerTest() {
 		return "Controller works.";
 	}
 	
-	@GetMapping("/json")
+	@GetMapping(value = "/json", produces = MediaType.APPLICATION_JSON_VALUE)
 	public controllerJson json() {
 		return new controllerJson("1", "JSon", "Object");
 	}
 	
-	//test controllerJSon object
+	//test controllerJSon object - nested class
 	private class controllerJson {
 		
 		//Variables

@@ -1,14 +1,20 @@
 /**
  * Entity class as SubObject
  * 
- * +SubTopic to Topic is --> Many to One relation //egy a sokhoz relacio
+ * +SubTopic to Topic is --> Many to One relation //egy a sokhoz relacio//
  */
 package subtopics;
 
 import javax.persistence.Entity;
+//import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne; //+
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+//import controller.TopicController;
+//import interfaces.TopicRepository;
 import objects.TopicObject;
 
 @Entity
@@ -21,8 +27,15 @@ public class SubObject {
 	private String name;
 	private String description;
 	
-	@ManyToOne //+
+//	@ManyToOne(fetch = FetchType.LAZY, optional = false) //+
+	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private TopicObject topic;
+	
+//	@ManyToOne
+//	private TopicController topicController;
+	
+//	private TopicRepository topicRepository;
 	
 	/**
 	 * SubObject base constructor
@@ -42,7 +55,9 @@ public class SubObject {
 		this.name = name;
 		this.description = description;
 		//creating a new TopicObject witch has the topicId
-		this.topic = new TopicObject(topicId, "", "");  
+		this.topic = new TopicObject(topicId, "", "");
+		//this.topic = topicController.getTopic(topicId);
+		//this.topic = topicRepository.findOne(topicId);
 	}
 	//ID getters and setters
 	public String getID() {
